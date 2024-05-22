@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main1() {
 	var username string = "wagslane"
 	var password int = 20947382822
 
