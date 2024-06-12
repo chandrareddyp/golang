@@ -2,8 +2,14 @@ package main
 
 import "fmt"
 
-func getLast[]() {
-
+func getLast[T any](s []T) T {
+	l := len(s)
+	if l == 0 {
+		var z T
+		return z
+	}else{
+		return s[l-1]
+	}
 }
 
 // don't edit below this line
@@ -71,4 +77,5 @@ func test[T any](s []T, desc string) {
 	}
 	fmt.Printf("Last item in list: %v\n", last)
 	fmt.Println(" --- ")
+	error := fmt.Errorf("Expected %v but got %v", s[len(s)-1], last)
 }

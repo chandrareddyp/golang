@@ -10,6 +10,7 @@ func sendEmail(message string) {
 		time.Sleep(time.Millisecond * 250)
 		fmt.Printf("Email received: '%s'\n", message)
 	}()
+	//time.Sleep(time.Millisecond * 250)
 	fmt.Printf("Email sent: '%s'\n", message)
 }
 

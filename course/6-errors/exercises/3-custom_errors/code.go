@@ -9,6 +9,9 @@ type divideError struct {
 }
 
 // ?
+func (de divideError) Error() string {
+	return fmt.Sprintf("Cannot proceed, dividend is %.2f", de.dividend)
+}
 
 // don't edit below this line
 

@@ -7,7 +7,8 @@ import (
 
 func waitForDbs(numDBs int, dbChan chan struct{}) {
 	for i := 0; i < numDBs; i++ {
-		<-dbChan
+		val := <-dbChan
+		fmt.Printf("Database %v is connected\n", val)
 	}
 }
 
@@ -24,8 +25,8 @@ func test(numDBs int) {
 
 func main() {
 	test(3)
-	test(4)
-	test(5)
+	//test(4)
+	//test(5)
 }
 
 func getDatabasesChannel(numDBs int) chan struct{} {

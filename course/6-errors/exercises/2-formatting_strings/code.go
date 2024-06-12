@@ -1,7 +1,9 @@
 package main
 
+import "fmt"
+
 func getSMSErrorString(cost float64, recipient string) string {
-	// ?
+	return fmt.Sprintf("SMS to %s could not be sent. ERR: insufficient funds", recipient)
 }
 
 // don't edit below this line

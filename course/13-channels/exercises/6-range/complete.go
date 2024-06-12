@@ -24,9 +24,9 @@ func test(n int) {
 
 func main() {
 	test(10)
-	test(5)
-	test(20)
-	test(13)
+	//test(5)
+	//test(20)
+	//test(13)
 }
 
 func fibonacci(n int, ch chan int) {

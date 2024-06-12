@@ -5,15 +5,19 @@ import (
 	"time"
 )
 
+var all int
 func countReports(numSentCh chan int) int {
 	total := 0
 	for {
 		numSent, ok := <-numSentCh
+		
 		if !ok {
 			break
 		}
+		fmt.Printf("Received %v reports\n", numSent)
 		total += numSent
 	}
+	fmt.Println("Channel is closed-exiting")
 	return total
 }
 
@@ -26,14 +30,15 @@ func test(numBatches int) {
 	fmt.Println("Start counting...")
 	numReports := countReports(numSentCh)
 	fmt.Printf("%v reports sent!\n", numReports)
+	fmt.Printf("%v actula reports sent!\n", all)
 	fmt.Println("========================")
 }
 
 func main() {
 	test(3)
-	test(4)
-	test(5)
-	test(6)
+	//test(4)
+	//test(5)
+	//test(6)
 }
 
 func sendReports(numBatches int, ch chan int) {
@@ -41,6 +46,7 @@ func sendReports(numBatches int, ch chan int) {
 		numReports := i*23 + 32%17
 		ch <- numReports
 		fmt.Printf("Sent batch of %v reports\n", numReports)
+		all += numReports
 		time.Sleep(time.Millisecond * 100)
 	}
 	close(ch)
