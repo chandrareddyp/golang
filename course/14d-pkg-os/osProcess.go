@@ -1,0 +1,1 @@
+// write a example to demonstrate os.StartProcess

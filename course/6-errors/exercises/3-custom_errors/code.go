@@ -10,6 +10,7 @@ type divideError struct {
 
 // ?
 func (de divideError) Error() string {
+	var c comparable 
 	return fmt.Sprintf("Cannot proceed, dividend is %.2f", de.dividend)
 }
 
