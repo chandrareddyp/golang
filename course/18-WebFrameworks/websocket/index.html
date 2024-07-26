@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Websocket</title>
+  <script>
+    const socket = new WebSocket('ws://localhost:8080/ws');
+    socket.onopen = () => {
+      console.log('Connected');
+      socket.send('Hello from client');
+    };
+    socket.onclose = (event) => {
+      console.log('Disconnected from server', event);
+    };
+    socket.onmessage = (msg) => {
+      console.log(msg.data);
+    };
+    socket.onerror = (error) => {
+      console.log('Error:', error);
+    };
+  </script>
+
+</html>
